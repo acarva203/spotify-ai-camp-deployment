@@ -77,6 +77,7 @@ function ProductPage() {
         setSongs(tracks);
       } catch (error) {
         console.error(error);
+        setErrorMessage("Error retrieving songs, please try again later")
       } finally {
         setIsLoading(false); // Set loading state to false after API call completes
       }

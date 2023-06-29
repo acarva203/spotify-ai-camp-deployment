@@ -1,4 +1,13 @@
 import React from 'react';
+import Image from 'next/image';
+import Aishari from '@public/Aishwari.png';
+import Ayana from '@public/Ayana.png';
+import Rex from '@public/Rex.png';
+// import Travis from '@public/Travis.png';
+// import Roshni from '@public/Roshni.png';
+import Alex from '@public/Alex.png';
+// import Andy from '@public/Andy.png';
+import placeholderImage from '@public/placeholderImage.jpeg';
 
 function Team() {
   return (
@@ -6,26 +15,25 @@ function Team() {
       <div className="container">
         <div className="text-center">
           <h2 className="section-heading text-uppercase">Our Amazing Team</h2>
-          {/* <h3 className="section-subheading text-muted">placeholder</h3>*/}
         </div>
         <div className="row">
           <div className="col-lg-4">
             <div className="team-member">
-              <img className="mx-auto rounded-circle" src="@assets/img/team/placeholder-image-person-jpg.jpeg" alt="..." />
+              {/* <Image src={Travis} alt="Travis Peng" className="mx-auto rounded-circle" /> */}
               <h4>Travis Peng</h4>
               <p className="text-muted">Hello!</p>
             </div>
           </div>
           <div className="col-lg-4">
             <div className="team-member">
-              <img className="mx-auto rounded-circle" src="@assets/img/team/placeholder-image-person-jpg.jpeg" alt="..." />
+              {/* <Image src={Roshni} alt="Roshni Yousuf" className="mx-auto rounded-circle" /> */}
               <h4>Roshni Yousuf</h4>
               <p className="text-muted">placeholder</p>
             </div>
           </div>
           <div className="col-lg-4">
             <div className="team-member">
-              <img className="mx-auto rounded-circle" src="@assets/img/team/Rex.png" alt="..." />
+              <Image src={Rex} alt="Rex Wang" className="mx-auto rounded-circle" />
               <h4>Rex Wang</h4>
               <p className="text-muted">I do vector graphics and vector art for fun. I also do logos for people online for free (if you ask nicely). Find me on Discord, @verkii_. I definitely look like this in real life, yes. Yep, yeah.  </p>
             </div>
@@ -34,30 +42,30 @@ function Team() {
         <div className="row">
           <div className="col-lg-4">
             <div className="team-member">
-              <img className="mx-auto rounded-circle" src="@assets/img/team/placeholder-image-person-jpg.jpeg" alt="..." />
+              <Image src={Alex} alt="Alex Du" className="mx-auto rounded-circle" />
               <h4>Alex Du</h4>
               <p className="text-muted">place holder</p>
             </div>
           </div>
           <div className="col-lg-4">
             <div className="team-member">
-              <img className="mx-auto rounded-circle" src="@assets/img/team/placeholder-image-person-jpg.jpeg" alt="..." />
+              <Image src={Ayana} alt="Ayana Javed" className="mx-auto rounded-circle" />
               <h4>Ayana Javed</h4>
               <p className="text-muted">place holder</p>
             </div>
           </div>
-        <div className="col-lg-4">
-          <div className="team-member">
-            <img className="mx-auto rounded-circle" src="@assets/img/team/Aishwari.png" alt="..." />
-            <h4>Aishwari Sirur</h4>
-            <p className="text-muted">Currently a rising senior eager to learn more about AI. I knit and write a lot. </p>
-          </div>
-        </div>
           <div className="col-lg-4">
-          <div className="team-member">
-            
-            <h4>Andy Yang</h4>
-            <p className="text-muted">placeholder </p>
+            <div className="team-member">
+              <Image src={Aishari} alt="Aishwari Sirur" className="mx-auto rounded-circle" />
+              <h4>Aishwari Sirur</h4>
+              <p className="text-muted">Currently a rising senior eager to learn more about AI. I knit and write a lot. </p>
+            </div>
+          </div>
+          <div className="col-lg-4">
+            <div className="team-member">
+              {/* <Image src={Andy} alt="Andy Yang" className="mx-auto rounded-circle" /> */}
+              <h4>Andy Yang</h4>
+              <p className="text-muted">placeholder </p>
           </div>
         </div>
       </div>
