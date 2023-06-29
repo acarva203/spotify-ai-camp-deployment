@@ -7,9 +7,9 @@ interface LayoutProps {
 
 function Layout({ children }: LayoutProps): JSX.Element {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <CustomNavbar />
-      <div className="custom-mt-1">
+      <div className="custom-mt-1 flex-grow">
         {children}
       </div>
     </div>
@@ -17,4 +17,3 @@ function Layout({ children }: LayoutProps): JSX.Element {
 }
 
 export default Layout;
-
