@@ -3,6 +3,17 @@ import axios from 'axios'
 import SpotifyComponent from '@components/SpotifyComponent'
 import ChatGPT from '@components/ChatGPT'
 
+import { ScrollArea, ScrollBar } from "@components/ui/scroll-area"
+import { Separator } from "@components/ui/separator"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@components/ui/tabs"
+
+import { Button } from "@components/ui/button"
+
 function ProductPage() {
   const [songs, setSongs] = useState<TrackInfoType[] | null>([{
     trackName: 'Test Track *Change after testing',
@@ -142,15 +153,11 @@ function ProductPage() {
     <div>
       <div>
         <div className="marginY4 padding4 bgGray100">
-          <h3 className="fontSizeLg fontWeightBold">SoundSeeker</h3>
+          <h2 className="mt-2 mb-2 text-3xl font-bold tracking-tight">SoundSeeker</h2>
           <p className="text">Hello! To get started, try out all the songs below and pick a song you like the most. </p>
-          <p className="text">
-            Our product uses a xgboost model to find songs to recommend based on the user's input and Spotify's api to show song previews to the user. The program will first pick out 5 songs for the user to choose from. Once the user chooses a song, the program will use audio features from that song to find similar songs to recommend.
-          </p>
           <p className="text">Dont like a song? No worries! Ask for another selection of songs by clicking the button below.</p>
         </div>
-        <div className="marginY4 padding4 bgGray100">
-          <h3 className="fontSizeLg fontWeightBold">SoundSeeker Assistant</h3>
+        <div className="ml-4 mr-4">
           <ChatGPT message={message} />
         </div>
       </div>
@@ -160,9 +167,13 @@ function ProductPage() {
             <p className="fontSizeSm textColorRed600">{errorMessage}</p>
           </div>
         )}
-        <div className="flex1 flex-wrap1 justify-start spaceX4 spaceY4">
-          {
-            songs && songs.length > 0 ? (
+
+        <Separator className="my-4" />
+
+        <div className="relative">
+          <ScrollArea>
+            <div className="flex space-x-4 pb-4 ml-4">
+            {songs && songs.length > 0 ? (
               songs.map((song, index) => (
                 song.render && (
                   <SpotifyComponent
@@ -178,10 +189,11 @@ function ProductPage() {
               ))
             ) : (
               <div></div> // You can replace this with any placeholder component you want to show when songs is null or empty
-            )
-          }
+            )}
+            </div>
+            <ScrollBar className="" orientation="horizontal" />
+          </ScrollArea>
         </div>
-
       </div>
       {isLoading ? (
         <div className="circleLoader">Finding songs...</div>

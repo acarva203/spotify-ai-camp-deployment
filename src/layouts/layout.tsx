@@ -9,7 +9,7 @@ function Layout({ children }: LayoutProps): JSX.Element {
   return (
     <div>
       <CustomNavbar />
-      <div className="custom-mt">
+      <div className="custom-mt-1">
         {children}
       </div>
     </div>

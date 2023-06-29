@@ -24,6 +24,7 @@
       "@components/*": ["./src/components/*"],
       "@sections/*": ["./src/sections/*"],
       "@css/*": ["./src/css/*"],
+      "@lib/*": ["./src/lib/*"],
       "@assets/*": [
         "./src/assets/*"
       ],

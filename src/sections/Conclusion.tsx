@@ -11,7 +11,7 @@ function Conclusion() {
         <div className="row justify-content-center">
           {/* Service Item 1 */}
           <div className="col-lg-8">
-            <p className="lead"> In conclusion, our dataset was not well suited for predicting song genres. Even after classifing the subgenres given into 16 overarching genres, our KNN model could only correctly predict the genre of the song once for every three songs. This was due to most audio features in the dataset simply not correlating well enough to a song's genre. 
+            <p className="lead"> In conclusion, our dataset was likely the cause for our low accuracy. Even after classifing the subgenres given into 16 overarching genres, our KNN model could only correctly predict the genre of the song once for every three songs. This was due to most audio features in the dataset simply not correlating well enough to a song's genre. However, we believe that in the future, with a larger dataset and more audio features, we could create a model that could predict a song's genre with a higher accuracy. 
             </p>
           </div>
           {/*<div className="col-md-4">
