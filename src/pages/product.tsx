@@ -41,6 +41,7 @@ function ProductPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [isLoadingRecommended, setIsLoadingRecommended] = useState(false)
   const [button, setButton] = useState(false)
+  const [songFound, setSongFound] = useState(false)
 
   useEffect(() => {
     const fetchTestData = async () => {
@@ -126,10 +127,11 @@ function ProductPage() {
           render: true,
         }))
 
-        setMessage({text: `Here are some songs I think you might like!`})
+        setMessage({text: `Here are some songs I think you might like. Have fun trying them out!`})
         setSongs(recommendedSongs)
         setIsLoading(false)
         setIsLoadingRecommended(false)
+        setSongFound(true)
         // Do something with the recommended songs
 
       } else {
@@ -177,7 +179,9 @@ function ProductPage() {
 
         <div className="flex flex-col justify-center">
           <Button onClick={getNewSongs} variant="link" className="text-black">
-            I dont like any of these songs (refresh songs)
+            {songFound
+              ? "I don't like any of these songs (refresh songs)"
+              : "I don't like any of these songs (restart song selection)"}
           </Button>
           {isLoading ? (
               <div className="mt-2 mb-2 flex justify-center">
@@ -213,10 +217,12 @@ function ProductPage() {
 
       </div>
         <div className="flex justify-center mt-2">
-          <button onClick={getNewRecommendedSongs} className="btn btn-wide btn-primary flex items-center justify-center">
-            {isLoadingRecommended && <span className="loading loading-spinner mr-2"></span>}
-            Find My Song!
-          </button>
+          {!songFound && (
+            <button onClick={getNewRecommendedSongs} className="btn btn-wide btn-primary flex items-center justify-center">
+              {isLoadingRecommended && <span className="loading loading-spinner mr-2"></span>}
+              Find My Song!
+            </button>
+          )}
         </div>
 
     </div>
