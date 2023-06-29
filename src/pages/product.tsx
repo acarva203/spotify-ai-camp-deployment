@@ -191,7 +191,7 @@ function ProductPage() {
               <div></div> // You can replace this with any placeholder component you want to show when songs is null or empty
             )}
             </div>
-            <ScrollBar className="" orientation="horizontal" />
+            <ScrollBar orientation="horizontal" />
           </ScrollArea>
         </div>
       </div>

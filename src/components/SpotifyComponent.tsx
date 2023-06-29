@@ -43,11 +43,12 @@ const SpotifyComponent: React.FC<SpotifyComponentProps> = ({
   console.log("isSelected:", isSelected)
 
   return (
-<div className={`card card-compact w-64 bg-base-100 shadow-xl ${isSelected ? 'selected-border' : ''}`}>
+<div className={`card card-compact w-64 bg-base-100 shadow-sm ${isSelected ? 'selected-border' : ''}`}>
   <figure><img src={trackImage} alt={trackName} /></figure>
   <div className="card-body">
     <h2 className="card-title">{trackName}</h2>
     <p>{artistName}</p>
+    <audio ref={audioRef} src={previewUrl} className="wFull mt4" onError={(e) => console.error('Audio error', e)} />
     <div className="card-actions justify-center">
       <div className="mr-4 card-actions justify-start">
         <button className="btn btn-primary" onClick={togglePlayPause}>{isPlaying ? 'Pause' : 'Play'}</button>
