@@ -14,6 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",  // Add this line
     "plugins": [
       {
         "name": "next"
@@ -25,11 +26,10 @@
       "@sections/*": ["./src/sections/*"],
       "@css/*": ["./src/css/*"],
       "@lib/*": ["./src/lib/*"],
-      "@assets/*": [
-        "./src/assets/*"
-      ],
+      "@assets/*": ["./src/assets/*"],
+      "@public/*": ["./public/*"]  // Update this line
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/sections/Navbar.tsx"],
   "exclude": ["node_modules"]
 }

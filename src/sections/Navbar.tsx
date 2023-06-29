@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
-import navbarLogo from '@assets/img/navbar-logo.svg';
+import Image from 'next/image';
+import logo from '@public/logo.png';
+
 
 // TODO: Optimize navbar logo image for loading
 
@@ -10,9 +12,9 @@ function CustomNavbar() {
     <Navbar bg="dark" variant="dark" expand="lg" fixed="top" id="mainNav">
       <Container>
         <Navbar.Brand href="/">
-        <div className="flex flex-col items-center">
-          <img style={{ height: '50px', width: '60px' }} src={navbarLogo} alt="..." />
-          <h2 className="text-green-600 text-3xl font-bold tracking-tight">SoundSeeker</h2>
+        <div className="flex flex-row items-center">
+          <Image className="mb-2 mr-2" src={logo} alt="Logo" height={40} width={50} />
+          <h2 className="text-green-600 text-xl tracking-tight">Soundseeker</h2>
         </div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarResponsive" />

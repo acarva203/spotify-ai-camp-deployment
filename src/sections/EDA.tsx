@@ -1,4 +1,5 @@
 import React from 'react';
+import loudness_tempo_graph from '@assets/plotlygraphs/loudness_tempo_graph.html';
 
 function EDA() {
 
