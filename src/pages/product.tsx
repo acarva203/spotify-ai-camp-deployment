@@ -41,6 +41,7 @@ function ProductPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [isLoadingRecommended, setIsLoadingRecommended] = useState(false)
   const [button, setButton] = useState(false)
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [songFound, setSongFound] = useState(false)
 
   useEffect(() => {
@@ -87,6 +88,7 @@ function ProductPage() {
   const getNewRecommendedSongs = async () => {
     try {
       if (selectedSong) {
+        setIsButtonDisabled(true);
         setMessage({text: `Ah, ${selectedSong.trackName}, great choice! Please wait while I find some songs for you...`});
 
         setSongs(null)
@@ -132,6 +134,7 @@ function ProductPage() {
         setIsLoading(false)
         setIsLoadingRecommended(false)
         setSongFound(true)
+        setIsButtonDisabled(false)
         // Do something with the recommended songs
 
       } else {
@@ -153,9 +156,10 @@ function ProductPage() {
   };
 
   const getNewSongs = () => {
-    setButton(!button)
-  }
-
+    setButton(!button);
+    setIsButtonDisabled(true);
+    setTimeout(() => setIsButtonDisabled(false), 60000); // 60000 milliseconds = 1 minute
+  };  
   
   // console.log(songs)
   // console.log(selectedSong)
@@ -178,7 +182,7 @@ function ProductPage() {
         )}
 
         <div className="flex flex-col justify-center">
-          <Button onClick={getNewSongs} variant="link" className="text-black">
+          <Button onClick={getNewSongs} variant="link" className="text-black" disabled={isButtonDisabled}>
             {songFound
               ? "I don't like any of these songs (refresh songs)"
               : "I don't like any of these songs (restart song selection)"}
