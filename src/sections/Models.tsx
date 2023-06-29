@@ -3,9 +3,9 @@ import Image from 'next/image';
 import KNN from '@public/KNN.png';
 import SVC from '@public/SVC.png';
 import XGB from '@public/XGB.png';
-import ML1 from @public/ML1.png;
-import ML2 from @public/ML2.png;
-import ML3 from @public/ML3.png;
+import ML1 from '@public/ML1.png';
+import ML2 from '@public/ML2.png';
+import ML3 from '@public/ML3.png';
 
 function Models() {
 
