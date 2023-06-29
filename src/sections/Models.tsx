@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
-import KNN from '@public/knn.png';
-import SVC from '@public/svc.png';
-import XGB from '@public/xgb.png';
+import KNN from '@public/KNN.png';
+import SVC from '@public/SVC.png';
+import XGB from '@public/XGB.png';
 
 function Models() {
 
