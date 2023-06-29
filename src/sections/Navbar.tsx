@@ -10,8 +10,10 @@ function CustomNavbar() {
     <Navbar bg="dark" variant="dark" expand="lg" fixed="top" id="mainNav">
       <Container>
         <Navbar.Brand href="/">
-          <img style={{height: '50px', width: '60px'}} src={navbarLogo} alt="..." />
+        <div className="flex flex-col items-center">
+          <img style={{ height: '50px', width: '60px' }} src={navbarLogo} alt="..." />
           <h2 className="text-green-600 text-3xl font-bold tracking-tight">SoundSeeker</h2>
+        </div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarResponsive" />
         <Navbar.Collapse id="navbarResponsive">
