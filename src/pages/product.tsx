@@ -37,8 +37,10 @@ function ProductPage() {
   }]);
   const [selectedSong, setSelectedSong] = useState<TrackInfoType | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
-  const [message, setMessage] = useState({ text: 'Hello! You are one click away from finding your dream song' });
+  const [message, setMessage] = useState({ text: 'Hello! You are one click away from finding your dream song. To get started, pick a song you like the most.' });
   const [isLoading, setIsLoading] = useState(false)
+  const [isLoadingRecommended, setIsLoadingRecommended] = useState(false)
+  const [button, setButton] = useState(false)
 
   useEffect(() => {
     const fetchTestData = async () => {
@@ -48,7 +50,7 @@ function ProductPage() {
         console.log(response);
   
         const { data } = response;
-        const tracks = data.tracks.map((track) => ({
+        const tracks = data.tracks.map((track: TrackInfoResponse) => ({
           trackName: track.trackName,
           artistName: track.artistName,
           previewUrl: track.previewUrl,
@@ -78,7 +80,7 @@ function ProductPage() {
     };
   
     fetchTestData();
-  }, []);
+  }, [button]);
   
   const getNewRecommendedSongs = async () => {
     try {
@@ -87,6 +89,7 @@ function ProductPage() {
 
         setSongs(null)
         setIsLoading(true)
+        setIsLoadingRecommended(true)
 
         const response = await axios.post(
           'https://codermantester234.pythonanywhere.com/api/get-chosen-song-give-reccomended-songs',
@@ -101,7 +104,7 @@ function ProductPage() {
         console.log("Requested!")
 
         const { data } = response;
-        const recommendedSongs = data.tracks.map((track) => ({
+        const recommendedSongs = data.tracks.map((track: TrackInfoResponse) => ({
           trackName: track.trackName,
           artistName: track.artistName, // Replace with the actual artist name if available
           previewUrl: track.previewUrl,
@@ -125,6 +128,7 @@ function ProductPage() {
         setMessage({text: `Here are some songs I think you might like!`})
         setSongs(recommendedSongs)
         setIsLoading(false)
+        setIsLoadingRecommended(false)
         // Do something with the recommended songs
 
       } else {
@@ -145,6 +149,10 @@ function ProductPage() {
     }
   };
 
+  const getNewSongs = () => {
+    setButton(!button)
+  }
+
   
   // console.log(songs)
   // console.log(selectedSong)
@@ -152,10 +160,8 @@ function ProductPage() {
   return (
     <div>
       <div>
-        <div className="marginY4 padding4 bgGray100">
-          <h2 className="mt-2 mb-2 text-3xl font-bold tracking-tight">SoundSeeker</h2>
-          <p className="text">Hello! To get started, try out all the songs below and pick a song you like the most. </p>
-          <p className="text">Dont like a song? No worries! Ask for another selection of songs by clicking the button below.</p>
+        <div className="flex flex-col items-center justify-center marginY4 padding4 bgGray100">
+          <h2 className="mt-2 mb-4 text-3xl font-bold tracking-tight">SoundSeeker</h2>
         </div>
         <div className="ml-4 mr-4">
           <ChatGPT message={message} />
@@ -163,16 +169,25 @@ function ProductPage() {
       </div>
       <div>
         {errorMessage && (
-          <div className="marginTop2 items-center flex justify-center">
-            <p className="fontSizeSm textColorRed600">{errorMessage}</p>
+          <div className="mt-2 items-center flex justify-center mb-3">
+            <p className="fontSizeSm text-red-500">{errorMessage}</p>
           </div>
         )}
 
-        <Separator className="my-4" />
+        <div className="flex flex-col justify-center">
+          <Button onClick={getNewSongs} variant="link" className="text-black">
+            I don't like any of these songs (refresh songs)
+          </Button>
+          {isLoading ? (
+              <div className="mt-2 mb-2 flex justify-center">
+                <span className="loading loading-spinner w-8 h-8">Finding Songs...</span>
+              </div>
+            ) : null}
+        </div>
 
-        <div className="relative">
-          <ScrollArea>
-            <div className="flex space-x-4 pb-4 ml-4">
+      <div className="mt-3 relative flex justify-center items-center">
+        <ScrollArea>
+          <div className="flex space-x-4 pb-4 ml-4">
             {songs && songs.length > 0 ? (
               songs.map((song, index) => (
                 song.render && (
@@ -182,23 +197,27 @@ function ProductPage() {
                     trackName={song.trackName}
                     artistName={song.artistName}
                     trackImage={song.trackImage}
-                    isSelected={selectedSong !== null && selectedSong.trackId === song.trackId} // Pass isSelected prop
-                    onClick={() => handleSongSelect(song)} // Pass onClick handler
+                    isSelected={selectedSong !== null && selectedSong.trackId === song.trackId}
+                    onClick={() => handleSongSelect(song)}
                   />
                 )
               ))
             ) : (
-              <div></div> // You can replace this with any placeholder component you want to show when songs is null or empty
+              <div></div>
             )}
-            </div>
             <ScrollBar orientation="horizontal" />
-          </ScrollArea>
-        </div>
+          </div>
+        </ScrollArea>
       </div>
-      {isLoading ? (
-        <div className="circleLoader">Finding songs...</div>
-      ) : null}
-        <button onClick={getNewRecommendedSongs} className="bgBlue500 textColorWhite borderRadius paddingX2 paddingY1 marginTop4 hoverBgBlue600 fontSizeSm">Find My Song!</button>
+
+      </div>
+        <div className="flex justify-center mt-2">
+          <button onClick={getNewRecommendedSongs} className="btn btn-wide btn-primary flex items-center justify-center">
+            {isLoadingRecommended && <span className="loading loading-spinner mr-2"></span>}
+            Find My Song!
+          </button>
+        </div>
+
     </div>
 
   )

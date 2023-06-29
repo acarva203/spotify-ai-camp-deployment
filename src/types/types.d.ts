@@ -19,6 +19,27 @@ type TrackInfoType = {
   render: boolean;
 };
 
+type TrackInfoResponse = {
+  trackName: string;
+  artistName: string;
+  previewUrl: string;
+  trackImage: string;
+  trackId: string | null;
+  Explicit: boolean | null;
+  Danceability: number | null;
+  Energy: number | null;
+  Key: number | null;
+  Loudness: number | null;
+  Mode: number | null;
+  Speechiness: number | null;
+  Acousticness: number | null;
+  Instrumentalness: number | null;
+  Liveness: number | null;
+  Valence: number | null;
+  Tempo: number | null;
+  Render: boolean;
+};
+
 type Message = {
   trackName: string;
   message: string;
