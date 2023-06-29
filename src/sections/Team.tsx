@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Aishari from '@public/Aishwari.png';
 import Ayana from '@public/Ayana.png';
 import Rex from '@public/Rex.png';
-// import Travis from '@public/Travis.png';
+import Travis from '@public/Travis.jpg';
 // import Roshni from '@public/Roshni.png';
 import Alex from '@public/Alex.png';
 // import Andy from '@public/Andy.png';
@@ -19,7 +19,7 @@ function Team() {
         <div className="row">
           <div className="col-lg-4">
             <div className="team-member">
-              {/* <Image src={Travis} alt="Travis Peng" className="mx-auto rounded-circle" /> */}
+              <Image src={Travis} alt="Travis Peng" className="mx-auto rounded-circle" />
               <h4>Travis Peng</h4>
               <p className="text-muted">Hello!</p>
             </div>

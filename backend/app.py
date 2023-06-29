@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from spotify import spotify
-from model import predict_genre
+from model import GenrePredictor
 from flask_cors import CORS
 import pandas as pd
 import random
@@ -17,6 +17,7 @@ client_id = 'f74d125a75774bb886fea891b2324a1a'
 client_secret = '4f5e9dc1a61e442bb5f6d3aa83b4d185'
 
 s = spotify(client_id, client_secret)
+predictor = GenrePredictor()
 
 app = Flask(__name__)
 CORS(app)
@@ -85,25 +86,27 @@ def get_chosen_song_give_reccomended_songs():
     song_info = data.get('track')
 
     track_features = {
-        'Explicit': song_info.get('explicit'),
-        'Danceability': song_info.get('danceability'),
-        'Energy': song_info.get('energy'),
-        'Key': song_info.get('key'),
-        'Loudness': song_info.get('loudness'),
-        'Mode': song_info.get('mode'),
-        'Speechiness': song_info.get('speechiness'),
-        'Acousticness': song_info.get('acousticness'),
-        'Instrumentalness': song_info.get('instrumentalness'),
-        'Liveness': song_info.get('liveness'),
-        'Valence': song_info.get('valence'),
-        'Tempo': song_info.get('tempo')
+        'explicit': song_info.get('explicit'),
+        'danceability': song_info.get('danceability'),
+        'energy': song_info.get('energy'),
+        'key': song_info.get('key'),
+        'loudness': song_info.get('loudness'),
+        'mode': song_info.get('mode'),
+        'speechiness': song_info.get('speechiness'),
+        'acousticness': song_info.get('acousticness'),
+        'instrumentalness': song_info.get('instrumentalness'),
+        'liveness': song_info.get('liveness'),
+        'valence': song_info.get('valence'),
+        'tempo': song_info.get('tempo')
     }
 
     df = pd.DataFrame.from_dict([track_features])
-    genre_category = predict_genre(df)
+    genre_category = predictor.predict_genre(df)
+    
+    print(genre_category)
 
     # Select five random genres from the predicted category
-    seed_genres = random.sample(genre_dict[genre_category], 5)
+    seed_genres = random.sample(genre_dict.get(genre_category[0], []), 5)
 
     recommendations = s.get_recommendations_from_genre(seed_genres)
 
@@ -205,4 +208,4 @@ def get_chosen_song_give_reccomended_songs():
 #   return jsonify(data)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
+    app.run(host='0.0.0.0', port=5000)
