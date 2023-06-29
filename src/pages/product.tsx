@@ -45,6 +45,7 @@ function ProductPage() {
   useEffect(() => {
     const fetchTestData = async () => {
       setIsLoading(true); // Set loading state to true before API call
+      setSongs(null); // Clear songs state before API call
       try {
         const response = await axios.get('https://codermantester234.pythonanywhere.com/api/get-5-songs');
         console.log(response);
@@ -176,7 +177,7 @@ function ProductPage() {
 
         <div className="flex flex-col justify-center">
           <Button onClick={getNewSongs} variant="link" className="text-black">
-            I don't like any of these songs (refresh songs)
+            I don&spos;t like any of these songs (refresh songs)
           </Button>
           {isLoading ? (
               <div className="mt-2 mb-2 flex justify-center">
