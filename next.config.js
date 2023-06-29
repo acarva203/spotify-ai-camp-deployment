@@ -1,13 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    });
-
-    return config;
-  },
+  reactStrictMode: true,
 }
 
-module.exports = nextConfig;
+// module.exports = nextConfig
+
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://127.0.0.1:5000/api/:path*', // Replace with your Flask API URL
+      },
+    ];
+  },
+};
+ 

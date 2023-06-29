@@ -1,8 +1,7 @@
-import pickle
+import joblib
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 import os
-import xgboost as xgb
 
 class GenrePredictor:
     def __init__(self):
@@ -10,13 +9,12 @@ class GenrePredictor:
         dir_path = os.path.dirname(os.path.realpath(__file__))
 
         # Use the absolute path to load the model
-        model_path = os.path.join(dir_path, 'trained_model_xgboost_v2.json')
-        self.model = xgb.Booster(model_file=model_path)
+        model_path = os.path.join(dir_path, 'trained_model_xgboost_v2.joblib')
+        self.model = joblib.load(model_path)
 
         # Use the absolute path to load the label encoder
-        encoder_path = os.path.join(dir_path, 'label_encoder_v2.pkl')
-        with open(encoder_path, 'rb') as file:
-            self.label_encoder = pickle.load(file)
+        encoder_path = os.path.join(dir_path, 'label_encoder_v2.joblib')
+        self.label_encoder = joblib.load(encoder_path)
 
     def predict_genre(self, input_data):
         # Select the non-numerical columns
