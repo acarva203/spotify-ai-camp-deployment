@@ -11,6 +11,7 @@ function CustomNavbar() {
       <Container>
         <Navbar.Brand href="/">
           <img style={{height: '50px', width: '60px'}} src={navbarLogo} alt="..." />
+          <h2 className="text-green-600 text-3xl font-bold tracking-tight">SoundSeeker</h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarResponsive" />
         <Navbar.Collapse id="navbarResponsive">

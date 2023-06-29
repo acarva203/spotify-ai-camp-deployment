@@ -162,7 +162,7 @@ function ProductPage() {
     <div>
       <div>
         <div className="flex flex-col items-center justify-center marginY4 padding4 bgGray100">
-          <h2 className="mt-14 mb-4 text-3xl font-bold tracking-tight">SoundSeeker</h2>
+          <h2 className="mt-20 mb-4 text-3xl font-bold tracking-tight">SoundSeeker</h2>
         </div>
         <div className="ml-4 mr-4">
           <ChatGPT message={message} />
