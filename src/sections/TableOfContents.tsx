@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import Dataframe from '@public/dataframe.png';
+import Dataframe from '@public/Dataframe.png';
 import EDA from '@public/EDA.png';
 import ML from '@public/ML.png';
 
