@@ -50,6 +50,7 @@ function ProductPage() {
       setSongs(null); // Clear songs state before API call
       try {
         const response = await axios.get('https://codermantester234.pythonanywhere.com/api/get-5-songs');
+        // const response = await axios.get('http://localhost:5000/api/get-5-songs');
         console.log(response);
   
         const { data } = response;
@@ -98,12 +99,10 @@ function ProductPage() {
 
         const response = await axios.post(
           'https://codermantester234.pythonanywhere.com/api/get-chosen-song-give-reccomended-songs',
-          null,
+          // 'http://localhost:5000/api/get-chosen-song-give-reccomended-songs',
           {
-            params: {
-              track: selectedSong, // Pass the selected song as a parameter
-            },
-          }
+            track: selectedSong, // Pass the selected song as the request body
+          },
         );
 
         console.log("Requested!")
@@ -130,6 +129,7 @@ function ProductPage() {
           render: true,
         }))
 
+        setErrorMessage("")
         setMessage({text: `Here are some songs I think you might like. Have fun trying them out!`})
         setSongs(recommendedSongs)
         setIsLoading(false)
@@ -176,11 +176,6 @@ function ProductPage() {
         </div>
       </div>
       <div>
-        {errorMessage && (
-          <div className="mt-2 items-center flex justify-center mb-3">
-            <p className="fontSizeSm text-red-500">{errorMessage}</p>
-          </div>
-        )}
 
         <div className="flex flex-col justify-center">
           <Button onClick={getNewSongs} variant="link" className="text-black" disabled={isButtonDisabled}>
@@ -219,17 +214,25 @@ function ProductPage() {
           </div>
         </ScrollArea>
       </div>
-
       </div>
-        <div className="flex justify-center mt-2">
+        <div className="flex flex-col justify-center items-center mt-2">
+          {errorMessage && (
+            <div className="mt-2 items-center flex justify-center mb-1">
+              <p className="fontSizeSm text-red-500">{errorMessage}</p>
+            </div>
+          )}
+
           {!songFound && (
-            <button onClick={getNewRecommendedSongs} className="btn btn-wide btn-primary flex items-center justify-center">
+            <button
+              onClick={getNewRecommendedSongs}
+              className="btn btn-wide btn-primary flex items-center justify-center"
+              disabled={isLoadingRecommended} // Add the disabled attribute
+            >
               {isLoadingRecommended && <span className="loading loading-spinner mr-2"></span>}
               Find My Song!
             </button>
           )}
         </div>
-
     </div>
 
   )
