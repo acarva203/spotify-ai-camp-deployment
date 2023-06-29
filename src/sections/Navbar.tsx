@@ -1,0 +1,31 @@
+import React, { useEffect } from 'react';
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import navbarLogo from '@assets/img/navbar-logo.svg';
+
+// TODO: Optimize navbar logo image for loading
+
+function CustomNavbar() {
+
+  return (
+    <Navbar bg="dark" variant="dark" expand="lg" fixed="top" id="mainNav">
+      <Container>
+        <Navbar.Brand href="/">
+          <img style={{height: '50px', width: '60px'}} src={navbarLogo} alt="..." />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarResponsive" />
+        <Navbar.Collapse id="navbarResponsive">
+          <Nav className="ms-auto">
+            <Nav.Link href="/product">Our Product</Nav.Link>
+            <Nav.Link href="#overview">Overview</Nav.Link>
+            <Nav.Link href="#EDA">EDA</Nav.Link>
+            <Nav.Link href="#mlmodels">Machine Learning Models</Nav.Link>
+            <Nav.Link href="#conclusion">Conclusion</Nav.Link>
+            <Nav.Link href="#team">Our Team</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+}
+
+export default CustomNavbar;

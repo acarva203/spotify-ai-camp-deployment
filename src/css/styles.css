@@ -1,0 +1,235 @@
+/* styles.css */
+.custom-mt {
+  margin-top: 6.5rem; /* Adjust the value as needed */
+}
+
+body {
+  font-family: monospace;
+  background: black;
+  color: lime;
+}
+
+.typeWriter {
+  border-right: .15em solid lime;
+  font-size: 2em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 24ch }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: lime }
+}
+
+/* Mimic TailwindCSS styles */
+
+/* For "text-2xl" */
+.fontSize2xl {
+  font-size: 1.5rem;
+}
+
+/* For "my-4" */
+.marginY4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* For "p-4" */
+.padding4 {
+  padding: 1rem;
+}
+
+/* For "bg-gray-100" */
+.bgGray100 {
+  background-color: #f7fafc;
+}
+
+/* For "text-lg" */
+.fontSizeLg {
+  font-size: 1.125rem;
+}
+
+/* For "font-bold" */
+.fontWeightBold {
+  font-weight: 700;
+}
+
+/* For "px-4" */
+.paddingX4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* For "py-2" */
+.paddingY2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* For "bg-blue-500" */
+.bgBlue500 {
+  background-color: #4299e1;
+}
+
+/* For "text-white" */
+.textColorWhite {
+  color: #ffffff;
+}
+
+/* For "rounded" */
+.borderRadius {
+  border-radius: 0.25rem;
+}
+
+/* For "mt-2" */
+.marginTop2 {
+  margin-top: 0.5rem;
+}
+
+/* For "text-sm" */
+.fontSizeSm {
+  font-size: 0.875rem;
+}
+
+/* For "text-red-600" */
+.textColorRed600 {
+  color: #b82751;
+}
+
+/* For "space-x-4" */
+.spaceX4 > :not(template) ~ :not(template) {
+  margin-left: 1rem;
+}
+
+/* For "space-y-4" */
+.spaceY4 > :not(template) ~ :not(template) {
+  margin-top: 1rem;
+}
+
+/* For "px-2" */
+.paddingX2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* For "py-1" */
+.paddingY1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+/* For "mt-4" */
+.marginTop4 {
+  margin-top: 1rem;
+}
+
+/* For "hover:bg-blue-600" */
+.hoverBgBlue600:hover {
+  background-color: #3182ce;
+}
+
+/* For "text-sm" */
+.fontSizeSm {
+  font-size: 0.875rem;
+}
+
+/* Mimic TailwindCSS styles */
+
+.container2 {
+  width: 100%;
+  max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mxAuto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.border4-1-1 {
+  border-width: 6px;
+  border-style: solid; /* Add this line */
+}
+
+.borderGray500-1 {
+  border-color: #6b7280;
+}
+
+.roundedLg-1 {
+  border-radius: 0.5rem;
+}
+
+.overflowHidden-1 {
+  overflow: hidden;
+}
+
+.w1_3 {
+  width: 33.333333%;
+}
+
+.bgWhite {
+  background-color: #ffffff;
+}
+
+.shadowMd {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.roundedTmd {
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
+
+.textGray600 {
+  color: #4b5563;
+}
+
+.textSm {
+  font-size: 0.875rem;
+}
+
+.wFull {
+  width: 100%;
+}
+
+.mt4 {
+  margin-top: 1rem;
+}
+
+.hoverBgBlue600:hover {
+  background-color: #3182ce;
+}
+
+/* Mimic TailwindCSS styles */
+
+/* For "flex1" */
+.flex1 {
+  display: flex;
+  align-items: center;
+}
+
+
+/* For "flexWrap1" */
+.flexWrap1 {
+  flex-wrap: wrap;
+}
+
+.flexCol {
+  flex-direction: column;
+}
+
+/* For "flex1" */
+.flex2 {
+  flex: 1;
+}
+
+/* IMPORT THESE: */
+.right-align {
+  margin-left: 10px;
+}
