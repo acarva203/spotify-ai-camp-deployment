@@ -129,6 +129,7 @@ function ProductPage() {
           render: true,
         }))
 
+        setErrorMessage("")
         setMessage({text: `Here are some songs I think you might like. Have fun trying them out!`})
         setSongs(recommendedSongs)
         setIsLoading(false)
@@ -222,7 +223,11 @@ function ProductPage() {
           )}
 
           {!songFound && (
-            <button onClick={getNewRecommendedSongs} className="btn btn-wide btn-primary flex items-center justify-center">
+            <button
+              onClick={getNewRecommendedSongs}
+              className="btn btn-wide btn-primary flex items-center justify-center"
+              disabled={isLoadingRecommended} // Add the disabled attribute
+            >
               {isLoadingRecommended && <span className="loading loading-spinner mr-2"></span>}
               Find My Song!
             </button>
