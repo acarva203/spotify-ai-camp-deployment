@@ -162,7 +162,7 @@ function ProductPage() {
     <div>
       <div>
         <div className="flex flex-col items-center justify-center marginY4 padding4 bgGray100">
-          <h2 className="mt-2 mb-4 text-3xl font-bold tracking-tight">SoundSeeker</h2>
+          <h2 className="mt-10 mb-4 text-3xl font-bold tracking-tight">SoundSeeker</h2>
         </div>
         <div className="ml-4 mr-4">
           <ChatGPT message={message} />
@@ -177,7 +177,7 @@ function ProductPage() {
 
         <div className="flex flex-col justify-center">
           <Button onClick={getNewSongs} variant="link" className="text-black">
-            I don&spos;t like any of these songs (refresh songs)
+            I dont like any of these songs (refresh songs)
           </Button>
           {isLoading ? (
               <div className="mt-2 mb-2 flex justify-center">
