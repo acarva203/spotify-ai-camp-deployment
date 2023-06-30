@@ -50,8 +50,8 @@ function ProductPage() {
       setIsLoading(true); // Set loading state to true before API call
       setSongs(null); // Clear songs state before API call
       try {
-        // const response = await axios.get('https://codermantester234.pythonanywhere.com/api/get-5-songs');
-        const response = await axios.get('http://localhost:5000/api/get-5-songs');
+        const response = await axios.get('https://codermantester234.pythonanywhere.com/api/get-5-songs');
+        // const response = await axios.get('http://localhost:5000/api/get-5-songs');
         // const response = await axios.get('/api/get-5-songs');
         console.log(response);
   
@@ -101,8 +101,8 @@ function ProductPage() {
         setIsLoadingRecommended(true)
 
         const response = await axios.post(
-          // 'https://codermantester234.pythonanywhere.com/api/get-chosen-song-give-reccomended-songs',
-          'http://localhost:5000/api/get-chosen-song-give-reccomended-songs',
+          'https://codermantester234.pythonanywhere.com/api/get-chosen-song-give-reccomended-songs',
+          // 'http://localhost:5000/api/get-chosen-song-give-reccomended-songs',
           // '/api/get-chosen-song-give-reccomended-songs',
           {
             track: selectedSong, // Pass the selected song as the request body
