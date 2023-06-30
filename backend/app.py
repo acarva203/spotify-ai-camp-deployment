@@ -73,7 +73,7 @@ def get_5_songs():
 
                 tracks_info.append(track_features)
 
-        if len(tracks_info) >= 3:
+        if len(tracks_info) >= 5:
             break
 
     data = {"tracks": tracks_info}
@@ -108,43 +108,49 @@ def get_chosen_song_give_reccomended_songs():
     # Select five random genres from the predicted category
     seed_genres = random.sample(genre_dict.get(genre_category[0], []), 5)
 
-    recommendations = s.get_recommendations_from_genre(seed_genres)
-
     # List to store track features
     tracks_info = []
 
-    for track in recommendations:
-        track_name = track['name']
-        artist_name = track['artists'][0]['name']
-        preview_url = track['preview_url']
-        track_image = track['album']['images'][0]['url'] if track['album']['images'] else None
-        track_id = track['id']
-        explicit = track['explicit']
-        danceability, energy, key, loudness, mode, speechiness, acousticness, instrumentalness, liveness, valence, tempo = s.get_track_features(track_id)
+# Keep fetching recommendations until we have at least 3 songs
+    while len(tracks_info) < 3:
+        recommendations = s.get_recommendations_from_genre(seed_genres)
 
-        # Check if preview_url is not None or empty
-        if preview_url:
-            track_features = {
-                'trackName': track_name,
-                'artistName': artist_name,
-                'previewUrl': preview_url,
-                'trackImage': track_image,
-                'trackId': track_id,
-                'Explicit': explicit,
-                'Danceability': danceability,
-                'Energy': energy,
-                'Key': key,
-                'Loudness': loudness,
-                'Mode': mode,
-                'Speechiness': speechiness,
-                'Acousticness': acousticness,
-                'Instrumentalness': instrumentalness,
-                'Liveness': liveness,
-                'Valence': valence,
-                'Tempo': tempo
-            }
+        for track in recommendations:
+            track_name = track['name']
+            artist_name = track['artists'][0]['name']
+            preview_url = track['preview_url']
+            track_image = track['album']['images'][0]['url'] if track['album']['images'] else None
+            track_id = track['id']
+            explicit = track['explicit']
+            danceability, energy, key, loudness, mode, speechiness, acousticness, instrumentalness, liveness, valence, tempo = s.get_track_features(track_id)
 
-            tracks_info.append(track_features)
+            # Check if preview_url is not None or empty
+            if preview_url:
+                track_features = {
+                    'trackName': track_name,
+                    'artistName': artist_name,
+                    'previewUrl': preview_url,
+                    'trackImage': track_image,
+                    'trackId': track_id,
+                    'Explicit': explicit,
+                    'Danceability': danceability,
+                    'Energy': energy,
+                    'Key': key,
+                    'Loudness': loudness,
+                    'Mode': mode,
+                    'Speechiness': speechiness,
+                    'Acousticness': acousticness,
+                    'Instrumentalness': instrumentalness,
+                    'Liveness': liveness,
+                    'Valence': valence,
+                    'Tempo': tempo
+                }
+
+                tracks_info.append(track_features)
+
+            # Break the loop if we have at least 3 songs
+            if len(tracks_info) >= 3:
+                break
 
     data = {"tracks": tracks_info}
     return data
