@@ -29,7 +29,7 @@ function Team() {
               {/* <Image src={Roshni} alt="Roshni Yousuf" className="mx-auto rounded-circle" /> */}
               <Image src={placeholderImage} alt="Roshni Yousuf" className="mx-auto rounded-circle" />
               <h4>Roshni Yousuf</h4>
-              <p className="text-muted">Hi!</p>
+              <p className="text-muted">I&apos;m a rising senior and I am really happy I got to take part in the program! I love singing and listening to/making music. I love being outside and skateboarding.</p>
             </div>
           </div>
           <div className="col-lg-4">
@@ -45,14 +45,14 @@ function Team() {
             <div className="team-member">
               <Image src={Alex} alt="Alex Du" className="mx-auto rounded-circle" />
               <h4>Alex Du</h4>
-              <p className="text-muted">Hello</p>
+              <p className="text-muted">Hi, I exist. (maybe)</p>
             </div>
           </div>
           <div className="col-lg-4">
             <div className="team-member">
               <Image src={Ayana} alt="Ayana Javed" className="mx-auto rounded-circle" />
               <h4>Ayana Javed</h4>
-              <p className="text-muted">Hi!</p>
+              <p className="text-muted">Hi! Im currently a rising senior interested in machine learning and the future of AI. In my free time, I enjoy listening to music (A$AP Rocky and Childish Gambino are some favs) and playing my piano.</p>
             </div>
           </div>
           <div className="col-lg-4">
@@ -66,7 +66,7 @@ function Team() {
             <div className="team-member">
               <Image src={Andy} alt="Andy Yang" className="mx-auto rounded-circle" />
               <h4>Andy Yang</h4>
-              <p className="text-muted">Hi! </p>
+              <p className="text-muted">I&apos;m a rising senior studying data science at Boston University. Some of my hobbies include lifting weights, playing tennis, fashion, and eating food.</p>
           </div>
         </div>
       </div>
