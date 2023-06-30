@@ -19,7 +19,7 @@ function ProductDesc() {
               <li className="text-lg">You receive personalized recommendations that hit the mark every time</li>
               <li className="text-lg">You&apos;re part of a fun and interactive experience that makes all of the above possible</li>
             </ul>
-            <p className="text-lg mb-6">Welcome to that world. Welcome to <a href="/product" className="text-blue-500">SoundSeeker</a>. And the best part? It&apos;s available for free.</p>
+            <p className="text-lg mb-6">Welcome to that world. Welcome to <Link href="/product" className="text-blue-500">SoundSeeker</Link>. And the best part? It&apos;s available for free.</p>
             <p className="text-xl mb-6 font-bold">Here&apos;s why you&apos;ll love SoundSeeker:</p>
             <ol className="list-decimal pl-5 mb-6 text-center mx-auto">
               <li className="text-lg mb-6"><b>Save Time and Effort</b>: With our extensive library of songs, you could spend hours, even days, manually searching for songs that match your preferences. Or you could let SoundSeeker do the work. Our platform offers a randomized selection, saving you time and effort in finding music you&apos;ll love.</li>
