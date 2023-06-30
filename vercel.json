@@ -1,11 +1,8 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/*.py", "use": "@vercel/python" }
+    { "src": "src/pages/api/*.py", "use": "@vercel/python" }
   ],
-  "engines": {
-    "python": "3.8"
-  },
   "build": {
     "env": {
       "PIP_REQUIREMENTS": "requirements.txt"
