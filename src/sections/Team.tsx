@@ -4,10 +4,10 @@ import Aishari from '@public/Aishwari.png';
 import Ayana from '@public/Ayana.png';
 import Rex from '@public/Rex.png';
 import Travis from '@public/Travis.jpg';
-// import Roshni from '@public/Roshni.png';
+import Roshni from '@public/Roshni.png';
 import Alex from '@public/Alex.png';
 import Andy from '@public/Andy.jpg';
-import placeholderImage from '@public/placeholderImage.jpeg';
+// import placeholderImage from '@public/placeholderImage.jpeg';
 
 function Team() {
   return (
@@ -26,8 +26,8 @@ function Team() {
           </div>
           <div className="col-lg-4">
             <div className="team-member">
-              {/* <Image src={Roshni} alt="Roshni Yousuf" className="mx-auto rounded-circle" /> */}
-              <Image src={placeholderImage} alt="Roshni Yousuf" className="mx-auto rounded-circle" />
+              <Image src={Roshni} alt="Roshni Yousuf" className="mx-auto rounded-circle" />
+              {/* <Image src={placeholderImage} alt="Roshni Yousuf" className="mx-auto rounded-circle" /> */}
               <h4>Roshni Yousuf</h4>
               <p className="text-muted">I&apos;m a rising senior and I am really happy I got to take part in the program! I love singing and listening to/making music. I love being outside and skateboarding.</p>
             </div>
