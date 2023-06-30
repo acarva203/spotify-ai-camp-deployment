@@ -6,7 +6,7 @@ import Rex from '@public/Rex.png';
 import Travis from '@public/Travis.jpg';
 // import Roshni from '@public/Roshni.png';
 import Alex from '@public/Alex.png';
-import Andy from '@public/Andy.png';
+import Andy from '@public/Andy.jpg';
 import placeholderImage from '@public/placeholderImage.jpeg';
 
 function Team() {
