@@ -165,7 +165,7 @@ function ProductPage() {
     setButton(!button);
     setSongFound(false);
     setIsButtonDisabled(true);
-    setTimeout(() => setIsButtonDisabled(false), 60000); // 60000 milliseconds = 1 minute
+    setTimeout(() => setIsButtonDisabled(false), 30000); // 30000 milliseconds = 30 seconds
   };  
   
   // console.log(songs)
