@@ -25,7 +25,7 @@ function ProductDesc() {
             <ol>
             <li><b>Save Time and Effort</b>: With an extensive library of songs available, it can be time-consuming and overwhelming to manually search for songs that match your preferences. Sound Seeker eliminates the need for manual searching by offering a randomized selection, saving users time and effort in finding music they enjoy.</li>
               <p> </p>
-            <li><b>Overcome Decision Fatigue</b>: Sometimes, choosing what song to listen to can be challenging, especially when faced with countless options. Sound Seeker's randomization feature alleviates decision fatigue by taking the burden of choice off the user, allowing them to sit back, relax, and enjoy the surprise of discovering new tracks</li>
+            <li><b>Overcome Decision Fatigue</b>: Sometimes, choosing what song to listen to can be challenging, especially when faced with countless options. Sound Seekers randomization feature alleviates decision fatigue by taking the burden of choice off the user, allowing them to sit back, relax, and enjoy the surprise of discovering new tracks</li>
               <p> </p>
             <li><b>Broaden Music Taste</b>: Sound Seeker can help users broaden their music taste by exposing them to diverse genres, artists, and musical experiences. It encourages users to step out of their comfort zones and discover new favorites, ultimately enriching their musical journey.</li>
               </ol>

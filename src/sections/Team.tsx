@@ -6,7 +6,7 @@ import Rex from '@public/Rex.png';
 import Travis from '@public/Travis.jpg';
 // import Roshni from '@public/Roshni.png';
 import Alex from '@public/Alex.png';
-// import Andy from '@public/Andy.png';
+import Andy from '@public/Andy.png';
 import placeholderImage from '@public/placeholderImage.jpeg';
 
 function Team() {
@@ -21,12 +21,13 @@ function Team() {
             <div className="team-member">
               <Image src={Travis} alt="Travis Peng" className="mx-auto rounded-circle" />
               <h4>Travis Peng</h4>
-              <p className="text-muted">Hello! Im currently a rising junior passionate about AI. Some of my hobbies include cross country, badminton, and mountain biking</p>
+              <p className="text-muted">Hello! Im currently a rising junior passionate about AI. Some of my hobbies include cross country, badminton, and mountain biking.</p>
             </div>
           </div>
           <div className="col-lg-4">
             <div className="team-member">
               {/* <Image src={Roshni} alt="Roshni Yousuf" className="mx-auto rounded-circle" /> */}
+              <Image src={placeholderImage} alt="Roshni Yousuf" className="mx-auto rounded-circle" />
               <h4>Roshni Yousuf</h4>
               <p className="text-muted">Hi!</p>
             </div>
@@ -63,7 +64,7 @@ function Team() {
           </div>
           <div className="col-lg-4">
             <div className="team-member">
-              {/* <Image src={Andy} alt="Andy Yang" className="mx-auto rounded-circle" /> */}
+              <Image src={Andy} alt="Andy Yang" className="mx-auto rounded-circle" />
               <h4>Andy Yang</h4>
               <p className="text-muted">Hi! </p>
           </div>
