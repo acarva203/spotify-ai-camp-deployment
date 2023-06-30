@@ -83,6 +83,7 @@ def get_5_songs():
 @app.route('/api/get-chosen-song-give-reccomended-songs', methods=['POST'])
 def get_chosen_song_give_reccomended_songs():
     data = request.get_json()
+    print(data)
     song_info = data.get('track')
 
     track_features = {
@@ -111,7 +112,7 @@ def get_chosen_song_give_reccomended_songs():
     # List to store track features
     tracks_info = []
 
-# Keep fetching recommendations until we have at least 3 songs
+# Keep fetching recommendations until we have at least 3 so ngs
     while len(tracks_info) < 3:
         recommendations = s.get_recommendations_from_genre(seed_genres)
 
@@ -152,11 +153,12 @@ def get_chosen_song_give_reccomended_songs():
             if len(tracks_info) >= 3:
                 break
 
+    print(tracks_info)
     data = {"tracks": tracks_info}
     return data
 
-# if __name__ == '__main__':
-#     app.run(host='0.0.0.0', port=5000)
-    
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
+    
+# if __name__ == '__main__':
+#     app.run(debug=True)

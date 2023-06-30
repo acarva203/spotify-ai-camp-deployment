@@ -49,9 +49,9 @@ function ProductPage() {
       setIsLoading(true); // Set loading state to true before API call
       setSongs(null); // Clear songs state before API call
       try {
-        // const response = await axios.get('https://codermantester234.pythonanywhere.com/api/get_5_songs');
-        // const response = await axios.get('http://localhost:5000/api/get_5_songs');
-        const response = await axios.get('/api/get_5_songs');
+        const response = await axios.get('https://codermantester234.pythonanywhere.com/api/get-5-songs');
+        // const response = await axios.get('http://localhost:5000/api/get-5-songs');
+        // const response = await axios.get('/api/get-5-songs');
         console.log(response);
   
         const { data } = response;
@@ -99,9 +99,9 @@ function ProductPage() {
         setIsLoadingRecommended(true)
 
         const response = await axios.post(
-          // 'https://codermantester234.pythonanywhere.com/api/get_chosen_song_give_reccomended_songs',
-          // 'http://localhost:5000/api/get_chosen_song_give_reccomended_songs',
-          '/api/get_chosen_song_give_reccomended_songs',
+          'https://codermantester234.pythonanywhere.com/api/get-chosen-song-give-reccomended-songs',
+          // 'http://localhost:5000/api/get-chosen-song-give-reccomended-songs',
+          // '/api/get-chosen-song-give-reccomended-songs',
           {
             track: selectedSong, // Pass the selected song as the request body
           },
@@ -160,6 +160,7 @@ function ProductPage() {
 
   const getNewSongs = () => {
     setButton(!button);
+    setSongFound(false);
     setIsButtonDisabled(true);
     setTimeout(() => setIsButtonDisabled(false), 60000); // 60000 milliseconds = 1 minute
   };  
@@ -171,7 +172,7 @@ function ProductPage() {
     <div>
       <div>
         <div className="flex flex-col items-center justify-center marginY4 padding4 bgGray100">
-          <h2 className="mt-20 mb-4 text-3xl font-bold tracking-tight">SoundSeeker</h2>
+          <h2 className="mt-12 mb-4 text-6xl font-bold tracking-tight">SoundSeeker</h2>
         </div>
         <div className="ml-4 mr-4">
           <ChatGPT message={message} />

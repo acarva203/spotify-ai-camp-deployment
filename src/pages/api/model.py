@@ -17,6 +17,7 @@ class GenrePredictor:
         self.label_encoder = joblib.load(encoder_path)
 
     def predict_genre(self, input_data):
+        print(input_data.head())
         # Select the non-numerical columns
         non_numerical_cols = input_data.select_dtypes(include=['object']).columns
         
