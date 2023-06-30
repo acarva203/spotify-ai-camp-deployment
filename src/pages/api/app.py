@@ -213,5 +213,8 @@ def get_chosen_song_give_reccomended_songs():
 #   data = {"tracks": tracks_info}
 #   return jsonify(data)
 
+# if __name__ == '__main__':
+#     app.run(host='0.0.0.0', port=5000)
+    
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True)
