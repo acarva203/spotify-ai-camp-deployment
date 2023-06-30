@@ -13,7 +13,7 @@ function CustomNavbar() {
       <Container>
         <Navbar.Brand href="/">
         <div className="flex flex-row items-center">
-          <Image className="mb-2 mr-2" src={logo} alt="Logo" height={40} width={50} />
+          <Image className="mb-2 mr-2" src={logo} alt="Logo" height={40} width={40} />
           <h2 className="text-green-600 text-xl tracking-tight">Soundseeker</h2>
         </div>
         </Navbar.Brand>

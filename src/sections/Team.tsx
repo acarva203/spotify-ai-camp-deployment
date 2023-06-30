@@ -21,14 +21,14 @@ function Team() {
             <div className="team-member">
               <Image src={Travis} alt="Travis Peng" className="mx-auto rounded-circle" />
               <h4>Travis Peng</h4>
-              <p className="text-muted">Hello!</p>
+              <p className="text-muted">Hello! I'm currently a rising junior passionate about AI. Some of my hobbies include cross country, badminton, and mountain biking</p>
             </div>
           </div>
           <div className="col-lg-4">
             <div className="team-member">
               {/* <Image src={Roshni} alt="Roshni Yousuf" className="mx-auto rounded-circle" /> */}
               <h4>Roshni Yousuf</h4>
-              <p className="text-muted">placeholder</p>
+              <p className="text-muted">Hi!</p>
             </div>
           </div>
           <div className="col-lg-4">
@@ -44,14 +44,14 @@ function Team() {
             <div className="team-member">
               <Image src={Alex} alt="Alex Du" className="mx-auto rounded-circle" />
               <h4>Alex Du</h4>
-              <p className="text-muted">place holder</p>
+              <p className="text-muted">Hello</p>
             </div>
           </div>
           <div className="col-lg-4">
             <div className="team-member">
               <Image src={Ayana} alt="Ayana Javed" className="mx-auto rounded-circle" />
               <h4>Ayana Javed</h4>
-              <p className="text-muted">place holder</p>
+              <p className="text-muted">Hi!</p>
             </div>
           </div>
           <div className="col-lg-4">
@@ -65,7 +65,7 @@ function Team() {
             <div className="team-member">
               {/* <Image src={Andy} alt="Andy Yang" className="mx-auto rounded-circle" /> */}
               <h4>Andy Yang</h4>
-              <p className="text-muted">placeholder </p>
+              <p className="text-muted">Hi! </p>
           </div>
         </div>
       </div>

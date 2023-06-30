@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Masthead from '@sections/Masthead';
 import TableOfContents from '@sections/TableOfContents';
+import ProductDesc from '@sections/ProductDesc';
 import EDA from '@sections/EDA';
 import Models from '@sections/Models';
 import Conclusion from '@sections/Conclusion';
@@ -13,6 +14,7 @@ function HomePage() {
     <>
       <Masthead />
       <TableOfContents />
+      <ProductDesc />
       <EDA />
       <Models />
       <Conclusion />
