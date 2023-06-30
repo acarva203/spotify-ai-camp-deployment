@@ -1,31 +1,14 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    },
-    {
-      "src": "api/get_5_songs.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "api/get_chosen_song_give_reccomended_songs.py",
-      "use": "@vercel/python"
-    }
+    { "src": "api/*.py", "use": "@vercel/python" }
   ],
-  "routes": [
-    {
-      "src": "/api/get-5-songs",
-      "dest": "api/get_5_songs.py"
-    },
-    {
-      "src": "/api/get-chosen-song-give-reccomended-songs",
-      "dest": "api/get_chosen_song_give_reccomended_songs.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+  "engines": {
+    "python": "3.8"
+  },
+  "build": {
+    "env": {
+      "PIP_REQUIREMENTS": "requirements.txt"
     }
-  ]
+  }
 }
