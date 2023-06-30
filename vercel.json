@@ -6,14 +6,22 @@
       "use": "@vercel/next"
     },
     {
-      "src": "api/*.py",
+      "src": "api/get_5_songs.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/get_chosen_song_give_reccomended_songs.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "api/app.py"
+      "src": "/api/get-5-songs",
+      "dest": "api/get_5_songs.py"
+    },
+    {
+      "src": "/api/get-chosen-song-give-reccomended-songs",
+      "dest": "api/get_chosen_song_give_reccomended_songs.py"
     },
     {
       "src": "/(.*)",

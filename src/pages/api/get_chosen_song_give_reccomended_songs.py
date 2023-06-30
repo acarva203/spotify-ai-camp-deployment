@@ -1,9 +1,10 @@
-from flask import Flask, jsonify, request
+# get_chosen_song_give_reccomended_songs.py
+from http import HTTPStatus
 from spotify import spotify
 from model import GenrePredictor
-from flask_cors import CORS
 import pandas as pd
 import random
+import json
 
 genre_dict = {
     "Rock/Alternative/Punk/Metal": ["alt-rock", "alternative", "black-metal", "death-metal", "emo", "folk", "goth", "grunge", "hard-rock", "hardcore", "heavy-metal", "indie", "indie-pop", "metal", "metal-misc", "metalcore", "punk", "punk-rock", "rock", "rock-n-roll", "rockabilly"],
@@ -19,70 +20,8 @@ client_secret = '4f5e9dc1a61e442bb5f6d3aa83b4d185'
 s = spotify(client_id, client_secret)
 predictor = GenrePredictor()
 
-app = Flask(__name__)
-CORS(app)
-
-@app.route('/')
-def index():
-    return "Hello, this is my Flask app!"
-
-@app.route('/api/get-5-songs', methods=['GET'])
-def get_5_songs():
-    while True:
-        # Randomly select a genre category
-        genre_category = random.choice(list(genre_dict.keys()))
-
-        # Randomly select three genres from the chosen category
-        seed_genres = random.sample(genre_dict[genre_category], 5)
-
-        recommendations = s.get_recommendations_from_genre(seed_genres)
-
-        # List to store track features
-        tracks_info = []
-
-        for track in recommendations:
-            track_name = track['name']
-            artist_name = track['artists'][0]['name']
-            preview_url = track['preview_url']
-            track_image = track['album']['images'][0]['url'] if track['album']['images'] else None
-            track_id = track['id']
-            explicit = track['explicit']
-            danceability, energy, key, loudness, mode, speechiness, acousticness, instrumentalness, liveness, valence, tempo = s.get_track_features(track_id)
-
-            # Check if preview_url is not None or empty
-            if preview_url:
-                track_features = {
-                    'trackName': track_name,
-                    'artistName': artist_name,
-                    'previewUrl': preview_url,
-                    'trackImage': track_image,
-                    'trackId': track_id,
-                    'Explicit': explicit,
-                    'Danceability': danceability,
-                    'Energy': energy,
-                    'Key': key,
-                    'Loudness': loudness,
-                    'Mode': mode,
-                    'Speechiness': speechiness,
-                    'Acousticness': acousticness,
-                    'Instrumentalness': instrumentalness,
-                    'Liveness': liveness,
-                    'Valence': valence,
-                    'Tempo': tempo
-                }
-
-                tracks_info.append(track_features)
-
-        if len(tracks_info) >= 5:
-            break
-
-    data = {"tracks": tracks_info}
-    return jsonify(data)
-
-
-@app.route('/api/get-chosen-song-give-reccomended-songs', methods=['POST'])
-def get_chosen_song_give_reccomended_songs():
-    data = request.get_json()
+def handler(event, context):
+    data = json.loads(event['body'])
     song_info = data.get('track')
 
     track_features = {
@@ -147,16 +86,15 @@ def get_chosen_song_give_reccomended_songs():
                 }
 
                 tracks_info.append(track_features)
-
-            # Break the loop if we have at least 3 songs
-            if len(tracks_info) >= 3:
-                break
+                
+        if len(tracks_info) >= 3:
+            break
 
     data = {"tracks": tracks_info}
-    return data
-
-# if __name__ == '__main__':
-#     app.run(host='0.0.0.0', port=5000)
-    
-if __name__ == '__main__':
-    app.run(debug=True)
+    return {
+        'statusCode': HTTPStatus.OK,
+        'body': json.dumps(data),
+        'headers': {
+            'Content-Type': 'application/json',
+        },
+    }
