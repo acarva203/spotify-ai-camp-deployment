@@ -19,6 +19,7 @@ function ProductPage() {
     trackName: 'Test Track *Change after testing',
     artistName: 'Test Artist',
     previewUrl: 'https://p.scdn.co/mp3-preview/5d4c6f0b903074f5cc6cef58d2c2f67abb179d75?cid=f74d125a75774bb886fea891b2324a1a',
+    spotifyUrl: 'https://open.spotify.com/track/5d4c6f0b903074f5cc6cef58d2c2f67abb179d75',
     trackImage: 'https://i.scdn.co/image/ab67616d0000b2732aa56b66dfc0e631ceca0ce2',
     trackId: null,
     explicit: null,
@@ -49,8 +50,8 @@ function ProductPage() {
       setIsLoading(true); // Set loading state to true before API call
       setSongs(null); // Clear songs state before API call
       try {
-        const response = await axios.get('https://codermantester234.pythonanywhere.com/api/get-5-songs');
-        // const response = await axios.get('http://localhost:5000/api/get-5-songs');
+        // const response = await axios.get('https://codermantester234.pythonanywhere.com/api/get-5-songs');
+        const response = await axios.get('http://localhost:5000/api/get-5-songs');
         // const response = await axios.get('/api/get-5-songs');
         console.log(response);
   
@@ -59,6 +60,7 @@ function ProductPage() {
           trackName: track.trackName,
           artistName: track.artistName,
           previewUrl: track.previewUrl,
+          spotifyUrl: track.spotifyUrl,
           trackImage: track.trackImage,
           trackId: track.trackId,
           explicit: track.Explicit,
@@ -99,8 +101,8 @@ function ProductPage() {
         setIsLoadingRecommended(true)
 
         const response = await axios.post(
-          'https://codermantester234.pythonanywhere.com/api/get-chosen-song-give-reccomended-songs',
-          // 'http://localhost:5000/api/get-chosen-song-give-reccomended-songs',
+          // 'https://codermantester234.pythonanywhere.com/api/get-chosen-song-give-reccomended-songs',
+          'http://localhost:5000/api/get-chosen-song-give-reccomended-songs',
           // '/api/get-chosen-song-give-reccomended-songs',
           {
             track: selectedSong, // Pass the selected song as the request body
@@ -114,6 +116,7 @@ function ProductPage() {
           trackName: track.trackName,
           artistName: track.artistName, // Replace with the actual artist name if available
           previewUrl: track.previewUrl,
+          spotifyUrl: track.spotifyUrl,
           trackImage: track.trackImage,
           trackId: track.trackId,
           explicit: track.Explicit,
@@ -202,6 +205,7 @@ function ProductPage() {
                   <SpotifyComponent
                     key={index}
                     previewUrl={song.previewUrl}
+                    spotifyUrl={song.spotifyUrl}
                     trackName={song.trackName}
                     artistName={song.artistName}
                     trackImage={song.trackImage}

@@ -1,7 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
+import Link from 'next/link';
 
 type SpotifyComponentProps = {
   previewUrl: string;
+  spotifyUrl: string;
   trackName: string;
   artistName: string;
   trackImage: string;
@@ -13,6 +15,7 @@ type SpotifyComponentProps = {
 
 const SpotifyComponent: React.FC<SpotifyComponentProps> = ({
   previewUrl,
+  spotifyUrl,
   trackName,
   artistName,
   trackImage,
@@ -46,7 +49,9 @@ const SpotifyComponent: React.FC<SpotifyComponentProps> = ({
 <div className={`card card-compact w-64 bg-base-100 shadow-sm ${isSelected ? 'selected-border' : ''}`}>
   <figure><img src={trackImage} alt={trackName} /></figure>
   <div className="card-body">
-    <h2 className="card-title">{trackName}</h2>
+    <Link href={spotifyUrl} target="_blank" rel="noopener noreferrer">
+      <h2 className="text-black card-title">{trackName}</h2>
+    </Link>
     <p>{artistName}</p>
     <audio ref={audioRef} src={previewUrl} className="wFull mt4" onError={(e) => console.error('Audio error', e)} />
     <div className="card-actions justify-center">

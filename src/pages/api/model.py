@@ -29,11 +29,11 @@ class GenrePredictor:
         print(input_data_encoded)
 
         # Standardize the features
-        scaler = StandardScaler()
-        input_data_scaled = scaler.fit_transform(input_data_encoded)
+        # scaler = StandardScaler()
+        # input_data_scaled = scaler.fit_transform(input_data_encoded)
 
         # Make predictions on the input data
-        y_pred_encoded = self.model.predict(input_data_scaled)
+        y_pred_encoded = self.model.predict(input_data)
         
         print(y_pred_encoded)
 

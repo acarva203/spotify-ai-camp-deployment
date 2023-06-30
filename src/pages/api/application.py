@@ -44,6 +44,7 @@ def get_5_songs():
             track_name = track['name']
             artist_name = track['artists'][0]['name']
             preview_url = track['preview_url']
+            spotify_url = track['external_urls']['spotify']
             track_image = track['album']['images'][0]['url'] if track['album']['images'] else None
             track_id = track['id']
             explicit = track['explicit']
@@ -55,6 +56,7 @@ def get_5_songs():
                     'trackName': track_name,
                     'artistName': artist_name,
                     'previewUrl': preview_url,
+                    'spotifyUrl': spotify_url,
                     'trackImage': track_image,
                     'trackId': track_id,
                     'Explicit': explicit,
@@ -120,6 +122,7 @@ def get_chosen_song_give_reccomended_songs():
             track_name = track['name']
             artist_name = track['artists'][0]['name']
             preview_url = track['preview_url']
+            spotify_url = track['external_urls']['spotify']
             track_image = track['album']['images'][0]['url'] if track['album']['images'] else None
             track_id = track['id']
             explicit = track['explicit']
@@ -131,6 +134,7 @@ def get_chosen_song_give_reccomended_songs():
                     'trackName': track_name,
                     'artistName': artist_name,
                     'previewUrl': preview_url,
+                    'spotifyUrl': spotify_url,
                     'trackImage': track_image,
                     'trackId': track_id,
                     'Explicit': explicit,

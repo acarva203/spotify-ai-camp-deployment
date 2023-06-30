@@ -2,6 +2,7 @@ type TrackInfoType = {
   trackName: string;
   artistName: string;
   previewUrl: string;
+  spotifyUrl: string;
   trackImage: string;
   trackId: string | null;
   explicit: boolean | null;
@@ -23,6 +24,7 @@ type TrackInfoResponse = {
   trackName: string;
   artistName: string;
   previewUrl: string;
+  spotifyUrl: string;
   trackImage: string;
   trackId: string | null;
   Explicit: boolean | null;
