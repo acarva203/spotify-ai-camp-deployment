@@ -1,6 +1,5 @@
 import joblib
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder, StandardScaler
 import os
 
 class GenrePredictor:
@@ -41,21 +40,3 @@ class GenrePredictor:
         y_pred = self.label_encoder.inverse_transform(y_pred_encoded)
 
         return y_pred
-      
-# # Initialize the GenrePredictor
-# predictor = GenrePredictor()
-
-# # Assume that you have some known labels
-# known_labels = ['3', '6']
-
-# # Transform the known labels
-# encoded_labels = predictor.label_encoder.transform(known_labels)
-
-# # Print the encoded labels
-# print(f"Encoded labels: {encoded_labels}")
-
-# # Now, inverse transform the encoded labels
-# decoded_labels = predictor.label_encoder.inverse_transform(encoded_labels)
-
-# # Print the decoded labels
-# print(f"Decoded labels: {decoded_labels}")
