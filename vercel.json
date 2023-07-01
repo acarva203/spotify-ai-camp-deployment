@@ -6,7 +6,7 @@
   ],
   "routes": [
     { "src": "/api/.*", "dest": "src/pages/api/:1.py" },
-    { "src": "/(.*)", "dest": "src/pages/:1.tsx", "check": true }
+    { "src": "/(.*)", "dest": ":1.tsx", "check": true }
   ],
   "env": {
     "PIP_REQUIREMENTS": "src/pages/api/requirements.txt"
