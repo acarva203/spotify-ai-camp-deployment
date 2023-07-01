@@ -1,11 +1,14 @@
 {
   "version": 2,
   "builds": [
+    { "src": "src/pages/**/*.tsx", "use": "@vercel/static-build" },
     { "src": "src/pages/api/*.py", "use": "@vercel/python" }
   ],
-  "build": {
-    "env": {
-      "PIP_REQUIREMENTS": "requirements.txt"
-    }
+  "routes": [
+    { "src": "/api/.*", "dest": "src/pages/api/:1.py" },
+    { "src": "/(.*)", "dest": "src/pages/:1.tsx", "check": true }
+  ],
+  "env": {
+    "PIP_REQUIREMENTS": "src/pages/api/requirements.txt"
   }
 }
