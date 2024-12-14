@@ -10,14 +10,5 @@
   ],
   "env": {
     "PIP_REQUIREMENTS": "src/pages/api/requirements.txt"
-  },
-  "build": {
-    "env": {
-      "PIP_NO_CACHE_DIR": "false"
-    },
-    "commands": [
-      "apt-get update && apt-get install -y python3-distutils",
-      "pip install -r src/pages/api/requirements.txt"
-    ]
   }
 }
