@@ -1,14 +1,27 @@
 {
   "version": 2,
   "builds": [
-    { "src": "package.json", "use": "@vercel/static-build" },
-    { "src": "src/pages/api/*.py", "use": "@vercel/python" }
+    { 
+      "src": "package.json", 
+      "use": "@vercel/static-build" 
+    },
+    { 
+      "src": "src/pages/api/*.py", 
+      "use": "@vercel/python" 
+    }
   ],
   "routes": [
-    { "src": "/api/.*", "dest": "src/pages/api/:1.py" },
-    { "src": "/([^/]*)", "dest": "src/pages/:1.tsx", "check": true }
+    { 
+      "src": "/api/.*", 
+      "dest": "src/pages/api/:1.py" 
+    },
+    { 
+      "src": "/([^/]*)", 
+      "dest": "src/pages/:1.tsx", 
+      "check": true 
+    }
   ],
   "env": {
-    "PIP_REQUIREMENTS": "src/pages/api/requirements.txt"
+    "PYTHON_VERSION": "3.8"
   }
 }
